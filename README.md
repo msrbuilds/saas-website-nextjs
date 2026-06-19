@@ -1,4 +1,4 @@
-# HeadlessWoo — Animated Landing Page Template
+# SaaS/Product — Animated Landing Page Template
 
 A modern, dark-premium landing page template for headless WooCommerce storefronts. Built with **Next.js 16**, **React 19**, **Tailwind CSS v4**, and **GSAP** scroll animations. Inspired by [Axion](https://axion.aura.build/) and [Magic UI Sage](https://startup-template-sage.vercel.app/).
 
@@ -8,6 +8,8 @@ A modern, dark-premium landing page template for headless WooCommerce storefront
 [![GSAP](https://img.shields.io/badge/GSAP-3-88CE02?logo=greensock)](https://gsap.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<img width="1920" height="1080" alt="glm" src="https://github.com/user-attachments/assets/7ff3c07d-ed63-457f-b551-5a7eb042da78" />
 
 ---
 
