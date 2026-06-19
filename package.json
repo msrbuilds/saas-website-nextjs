@@ -1,0 +1,45 @@
+{
+  "name": "headless-woo-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A modern, dark-premium animated landing page template for headless WooCommerce storefronts. Built with Next.js 16, React 19, Tailwind CSS v4, and GSAP.",
+  "author": "msrbuilds",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msrbuilds/headless-woo-landing.git"
+  },
+  "homepage": "https://github.com/msrbuilds/headless-woo-landing#readme",
+  "keywords": [
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "gsap",
+    "landing-page",
+    "woocommerce",
+    "headless",
+    "template",
+    "animation"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/node": "^26.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #08080a;
+  --color-ink-2: #0d0d10;
+  --color-ink-3: #121216;
+  --color-line: #1c1c22;
+  --color-line-2: #26262e;
+  --color-accent: #f97316;
+  --color-accent-2: #fb923c;
+  --color-accent-3: #ea580c;
+  --color-muted: #6b6b76;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --card-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: #d4d4d8;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #08080a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #26262e;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(249, 115, 22, 0.5);
+  }
+}
+
+/* ---- Custom utilities (plain CSS, not layered) ---- */
+
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.mask-radial {
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 60% at 50% 35%,
+    #000 35%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 60% at 50% 35%,
+    #000 35%,
+    transparent 100%
+  );
+}
+
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+}
+
+.text-gradient {
+  background-image: linear-gradient(115deg, #ffba80 0%, #fb923c 50%, #ea580c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-animate {
+  background-image: linear-gradient(
+    115deg,
+    #ffba80 0%,
+    #fb923c 25%,
+    #ea580c 50%,
+    #fb923c 75%,
+    #ffba80 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.panel {
+  background: var(--color-ink-2);
+  border: 1px solid var(--color-line);
+}
+
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Rotating conic-gradient border sweep — main product preview */
+.border-animate {
+  position: relative;
+}
+.border-animate::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0%,
+    transparent 80%,
+    rgba(253, 224, 71, 0.9) 88%,
+    rgba(249, 115, 22, 1) 93%,
+    rgba(253, 224, 71, 0.9) 98%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-border 6s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rotate-border {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Card hover border — beam circles around the complete card */
+.card-border {
+  position: relative;
+  overflow: hidden;
+}
+.card-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--card-angle, 0deg),
+    transparent 0%,
+    transparent 75%,
+    rgba(253, 224, 71, 0.9) 85%,
+    rgba(249, 115, 22, 1) 92%,
+    rgba(253, 224, 71, 0.9) 98%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: card-rotate 4s linear infinite;
+  pointer-events: none;
+}
+.card-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes card-rotate {
+  to {
+    --card-angle: 360deg;
+  }
+}
+
+.blink {
+  animation: blink 1.4s steps(2) infinite;
+}
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
