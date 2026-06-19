@@ -179,7 +179,7 @@ GSAP animations live inside each component's `useGSAP` hook. Key timing values t
 3. Click **"Add New Project"** → Import your repository
 4. Click **Deploy**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/msrbuilds/headless-woo-landing)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/msrbuilds/saas-website-nextjs)
 
 ### Deploy to Netlify
 
