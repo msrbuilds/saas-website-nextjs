@@ -1,4 +1,4 @@
-# SaaS/Product — Animated Landing Page Template
+# SaaS/Product — Animated Website Template Built with NextJs
 
 A modern, dark-premium landing page template for headless WooCommerce storefronts. Built with **Next.js 16**, **React 19**, **Tailwind CSS v4**, and **GSAP** scroll animations. Inspired by [Axion](https://axion.aura.build/) and [Magic UI Sage](https://startup-template-sage.vercel.app/).
 
